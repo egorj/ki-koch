@@ -10,6 +10,11 @@
   font-weight: 400;
   --green: #7dde92;
   --red: #FE6D6A;
+  --white: #f8ffe5;
+}
+
+body {
+  background-color: var(--white);
 }
 
 input,

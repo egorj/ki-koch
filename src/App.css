@@ -17,6 +17,7 @@ input {
     border: 1px solid var(--green);
     border-radius: 0.3rem;
     width: 25rem;
+    background-color: var(--white);
 }
 
 button {
