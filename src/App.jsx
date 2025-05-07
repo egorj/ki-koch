@@ -3,6 +3,7 @@ import './App.css'
 
 import Header from './components/Header'
 import Ingredients from './components/Ingredients'
+import Recipe from './components/Recipe'
 
 import { getRecipeFromOpenAI } from './services/openai'
 
@@ -10,7 +11,7 @@ import { getRecipeFromOpenAI } from './services/openai'
 
 function App() {
 
-  const [ingredientList, setIngredientList] = useState(["oregano", "tomaten", "schinken"])
+  const [ingredientList, setIngredientList] = useState([])
   const [recipe, setRecipe] = useState("")
 
   function addIngredient(formData) {
@@ -45,6 +46,7 @@ function App() {
           </div>
         </div>
         <Ingredients ingredientList={ingredientList} />
+        {recipe && <Recipe recipe={recipe} />}
       </main>
     </>
   )

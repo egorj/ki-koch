@@ -1,0 +1,20 @@
+.suggested-recipe-container {
+    line-height: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-top: 2rem;
+}
+
+.suggested-recipe-container h2 {
+    margin-bottom: 1.5rem;
+}
+
+.suggested-recipe-container ul,
+.suggested-recipe-container ol {
+    margin: 0.5rem 0;
+}
+
+.suggested-recipe-container ul li,
+.suggested-recipe-container ol li {
+    margin-bottom: 0.5rem;
+}
