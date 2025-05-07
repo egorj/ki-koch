@@ -4,6 +4,7 @@ import './App.css'
 import Header from './components/Header'
 import Ingredients from './components/Ingredients'
 import Recipe from './components/Recipe'
+import Loader from './components/Loader'
 
 import { getRecipeFromOpenAI } from './services/openai'
 
@@ -13,6 +14,7 @@ function App() {
 
   const [ingredientList, setIngredientList] = useState([])
   const [recipe, setRecipe] = useState("")
+  const [loading, setLoading] = useState(false)
 
   function addIngredient(formData) {
     const newIngredient = formData.get("userIngredient")
@@ -23,11 +25,14 @@ function App() {
 
   async function generateRecipe() {
     try {
+      setLoading(true);
       const text = await getRecipeFromOpenAI(ingredientList);
       setRecipe(text);
     } catch (e) {
       console.error(e);
       setRecipe("Fehler: " + e.message);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -46,6 +51,7 @@ function App() {
           </div>
         </div>
         <Ingredients ingredientList={ingredientList} />
+        {loading && <Loader />}
         {recipe && <Recipe recipe={recipe} />}
       </main>
     </>
